@@ -12,16 +12,30 @@ public void draw()
   stroke((int)(Math.random() * 255), (int)(Math.random() * 255), (int)(Math.random() * 255));   
   line(250,500,250,400);   
   drawBranches(250, 400, 100, 3*Math.PI/2);
-  fractionLength+= 0.0004;
-  branchAngle += .0002;
-  fill(0, 255, 0);
-  rect(0, 470, 500, 30);
+  //fractionLength+= 0.0004;
+  //branchAngle += .0002;
+  noStroke();
+  fill(100, 200, 130);
+  rect(0, 470, 500, 30);  
 }
 
+
 public void keyPressed() {
+  if(key == 'g' || key == 'G') {
+      fractionLength += 0.005;
+      branchAngle += .001;
+      redraw();
+    } 
+    if (key == 's' || key == 'S') {
+      fractionLength -= 0.005;
+      branchAngle -= .001;
+      redraw();
+    }
+/*
   fractionLength+= 0.002;
   branchAngle += .001;
   redraw();
+  */
 }
 
 public void drawBranches(int x,int y, double branchLength, double angle) 
